@@ -58,6 +58,16 @@ https://script.google.com/home
   const LineNotifyToken = "xxxxxxxx";
   ```
 
+  45~50行目のコードを以下のように変更する。
+  ```js
+  sendNotices.forEach((notice) => {
+    console.log(notice);
+    //sendDiscordWebhook(notice);
+    sendLineNotify(notice);
+    Utilities.sleep(1000);
+  })
+  ```
+
 </details>
 
 <details>
@@ -66,6 +76,20 @@ https://script.google.com/home
   ```MailAddress```に自身のメールアドレスを貼り付ける。
   ```js
   const MailAddress = "xxxxx@gmail.com";
+  ```
+
+  45~54行目を以下のように変更する。
+  ```js
+  /*sendNotices.forEach((notice) => {
+    console.log(notice);
+    sendDiscordWebhook(notice);
+    //sendLineNotify(notice);
+    Utilities.sleep(1000);
+  })*/
+  sendMailArray.forEach((mailArray) => {
+    sendEmail(mailArray[0], mailArray[1]);
+    Utilities.sleep(1000);
+  })
   ```
 
 </details>
