@@ -53,14 +53,6 @@ function main() {
   //LastPostDateSetProperties(maxPostDateStr);
 }
 
-function LastPostDateSetProperties(date) {
-  ScriptProperties.setProperty('lastPostDate', date);
-}
-
-function LastPostDateGetProperties() {
-  return ScriptProperties.getProperty('lastPostDate')
-}
-
 function PostIdStrListSetProperties(idStrList) {
   ScriptProperties.setProperty('postIdStrList', idStrList);
 }
