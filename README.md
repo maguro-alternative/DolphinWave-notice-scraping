@@ -40,6 +40,24 @@ https://script.google.com/home
 <details>
 <summary>Line Notify</summary>
 
+  以下のサイトにアクセスする。(LINEログインもしておく)
+  
+  https://notify-bot.line.me/ja/
+  
+  Notifyのサービス登録も済ましておく。(Callbackは適当でOK)
+  
+  https://notify-bot.line.me/my/services/new
+
+  サービスを登録したらトークンを発行する。
+
+  ![トークン発行](/img/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-09-18%206.57.02.png)
+
+  トークン名(なんでもいい)と送信先を選択。
+  発行されたトークンを```LineNotifyToken```に貼り付け。
+  ```js
+  const LineNotifyToken = "xxxxxxxx";
+  ```
+
 </details>
 
 <details>
