@@ -1,6 +1,11 @@
 # DolphinWave-notice-scraping
 ドルフィンウェーブのお知らせ取得スクリプト
 
+# 概要
+
+ドルフィンウェーブのお知らせを取得し、通知を受け取れるスクリプトです。
+![DiscordWebhookの画像](https://pbs.twimg.com/media/GV-xdFGaoAENnBW?format=jpg&name=large)
+
 # 使い方
 ## Google App Script
 Googleアカウントにログインし、以下にアクセス。
@@ -113,6 +118,8 @@ Googleのプログラムではないので警告が出るが続行。
 ![トリガー設定](/img/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-09-18%207.04.55.png)
 
 画面右下のトリガーを追加をクリック。
+
+これで設定完了です。
 
 ![トリガー追加](/img/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-09-18%207.05.25.png)
 
