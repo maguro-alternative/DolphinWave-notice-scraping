@@ -45,5 +45,10 @@ https://script.google.com/home
 <details>
 <summary>GMail</summary>
 
+  ```MailAddress```に自身のメールアドレスを貼り付ける。
+  ```js
+  const MailAddress = "xxxxx@gmail.com";
+  ```
+
 </details>
 
