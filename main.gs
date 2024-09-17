@@ -1,6 +1,8 @@
 const NoticeUrl = "https://webview-dolphin.marv-games.jp/news-top.html"
 const DiscordWebhookURL = "";
 const ScriptProperties = PropertiesService.getScriptProperties();
+const MailAddress = "";
+const LineNotifyToken = "";
 
 function main() {
   const postIdList = PostIdStrListGetProperties().split(',');
