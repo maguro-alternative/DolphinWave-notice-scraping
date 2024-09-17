@@ -93,3 +93,30 @@ function delTrigger() {
     }
   } 
 }
+
+function sendDiscordWebhook(notice) {
+  const payload = {
+    content: notice,
+  };
+  UrlFetchApp.fetch(DiscordWebhookURL, {
+    method: "post",
+    contentType: "application/json",
+    payload: JSON.stringify(payload),
+  });
+}
+
+function sendEmail(subject, body) {
+  GmailApp.sendEmail(MailAddress, subject, body);
+}
+
+function sendLineNotify(message){
+  UrlFetchApp.fetch(
+    NOTIFY,
+    {
+      method: "post",
+      payload : {"message": message},
+      headers : {"Authorization":"Bearer " + LineNotifyToken}
+    }
+  );
+}
+
