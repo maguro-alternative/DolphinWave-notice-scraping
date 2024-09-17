@@ -7,6 +7,7 @@ const LineNotifyToken = "";
 function main() {
   const postIdList = PostIdStrListGetProperties().split(',');
   let sendText = "";
+  let sendMailArray = []
   const sendNotices = [];
   const dolwave = UrlFetchApp.fetch(
     url = NoticeUrl,
@@ -35,20 +36,22 @@ function main() {
       }
       sendText += `\nhttps://webview-dolphin.marv-games.jp/news/articles/${articeId}.html`
       sendNotices.push(sendText);
+      sendMailArray.push([
+        newsDate + ' ' + newsTitle,
+        `https://webview-dolphin.marv-games.jp/news/articles/${articeId}.html`
+      ]);
     }
   }
   sendNotices.forEach((notice) => {
     console.log(notice);
-    const payload = {
-      content: notice,
-    };
-    UrlFetchApp.fetch(DiscordWebhookURL, {
-      method: "post",
-      contentType: "application/json",
-      payload: JSON.stringify(payload),
-    });
+    sendDiscordWebhook(notice);
+    //sendLineNotify(notice);
     Utilities.sleep(1000);
   })
+  /*sendMailArray.forEach((mailArray) => {
+    sendEmail(mailArray[0], mailArray[1]);
+    Utilities.sleep(1000);
+  })*/
   PostIdStrListSetProperties(idList.join());
   //LastPostDateSetProperties(maxPostDateStr);
 }
