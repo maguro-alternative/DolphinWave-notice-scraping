@@ -56,6 +56,25 @@ function main() {
   //LastPostDateSetProperties(maxPostDateStr);
 }
 
+// 環境変数のセット。トリガーセット前に実行すること。
+function FirstSet(){
+  const dolwave = UrlFetchApp.fetch(
+    url = NoticeUrl,
+    params = {
+      "method": "get"
+    }
+  );
+  const html = dolwave.toString();
+  const idRegexp = /id="(\d+)"/g;
+  const matches = [...html.matchAll(idRegexp)];
+  const idList = [];
+  for(const idMatch of matches.slice(0,8)) {
+    idList.push(idMatch[1]);
+  }
+  console.log(idList.join());
+  PostIdStrListSetProperties(idList.join());
+}
+
 function PostIdStrListSetProperties(idStrList) {
   ScriptProperties.setProperty('postIdStrList', idStrList);
 }
