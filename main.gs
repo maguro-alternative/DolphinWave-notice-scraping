@@ -68,11 +68,13 @@ function FirstSet(){
   const idRegexp = /id="(\d+)"/g;
   const matches = [...html.matchAll(idRegexp)];
   const idList = [];
+  const now = new Date();
   for(const idMatch of matches.slice(0,8)) {
     idList.push(idMatch[1]);
   }
   console.log(idList.join());
   PostIdStrListSetProperties(idList.join());
+  LastPostDateSetProperties(`${now.getFullYear}/${now.getMonth}/${now.getDay}`);
 }
 
 function PostIdStrListSetProperties(idStrList) {
