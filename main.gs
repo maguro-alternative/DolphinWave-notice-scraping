@@ -19,6 +19,7 @@ function main() {
   const idRegexp = /id="(\d+)"/g;
   const matches = [...html.matchAll(idRegexp)]
   const idList = [];
+  const lastPostDate = LastPostDateGetProperties();
   for(const idMatch of matches.slice(0,9)) {
     const articeId = idMatch[1];
     idList.push(articeId);
@@ -27,6 +28,11 @@ function main() {
       const newsTitle = Parser.data(articeHtml).from(`<p class="news_title">`).to('</p>').build();
       const newsDate = Parser.data(articeHtml).from(`<div class="news_date">`).to('</div>').build();
       const slideBnr = Parser.data(html).from(`<div><a href="/news/articles/${articeId}.html">`).to('</a></div>').build();
+      const news = new Date(`${newsDate.split('/')[0]}-${newsDate.split('/')[1]}-${newsDate.split('/')[2]}`);
+      const lastPost = new Date(`${lastPostDate.split('/')[0]}-${lastPostDate.split('/')[1]}-${lastPostDate.split('/')[2]}`);
+      if (news < lastPost) {
+        continue;
+      }
 
       sendText = '<@&xxxxxx>' + newsDate + ' ' + newsTitle;
       if(!slideBnr.includes(`<meta charset="UTF-8">`)) {
@@ -40,6 +46,7 @@ function main() {
         newsDate + ' ' + newsTitle,
         `https://webview-dolphin.marv-games.jp/news/articles/${articeId}.html`
       ]);
+      LastPostDateSetProperties(newsDate);
     }
   }
   sendNotices.forEach((notice) => {
