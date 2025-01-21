@@ -83,6 +83,14 @@ function PostIdStrListGetProperties() {
   return ScriptProperties.getProperty('postIdStrList')
 }
 
+function LastPostDateSetProperties(lastPostDate) {
+  ScriptProperties.setProperty('lastPostDate', lastPostDate)
+}
+
+function LastPostDateGetProperties() {
+  return ScriptProperties.getProperty('lastPostDate')
+}
+
 //0時にLINE側のプッシュ状況を知らせるためのトリガー設定
 function setTrigger(){
   delTrigger();
